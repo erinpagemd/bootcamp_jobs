@@ -1,2 +1,0 @@
-class Applicant < User
-end
