@@ -1,1 +1,11 @@
 h1 Here are all the job openings...
+
+.row
+  h2 Job Openings
+  - @job_openings.each do |job|
+    .panel.panel-primary
+      .panel-heading
+        h2.panel-title= job.name
+      .panel-body
+        p= job.description
+    
