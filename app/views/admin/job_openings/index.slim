@@ -1,0 +1,29 @@
+h1 Here are all the job openings...
+
+.row
+  .col-md-8.col-md-offset-2
+
+
+    .row
+      h2 Create a new job opening
+      .panel.panel-default
+        .panel-body
+          =simple_form_for [:admin, @job_opening] do |f|
+            =f.input :name
+            =f.input :description
+            =f.button :submit, data: { disable_with: "Saving..." }
+
+    .row
+      h2 Current Job Openings
+      - @job_openings.each do |job|
+        .row
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title= job.name
+            .panel-body
+              p= job.description
+            .panel-footer
+              button.btn.btn-success= link_to "Edit"
+              button.btn.btn-warning= link_to "Delete"
+              
+    
