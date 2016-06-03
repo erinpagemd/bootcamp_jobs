@@ -11,7 +11,7 @@ class Admin::JobOpeningsController < AdminController
       flash[:notice] = 'Job Opening created successfully.'
       redirect_to admin_job_openings_path
     else
-      flash.alert = "Job Openings was not created!"
+      flash.alert = "Job Opening was not created!"
       redirect_to admin_job_openings_path
     end
   end
