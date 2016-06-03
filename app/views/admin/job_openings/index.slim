@@ -1,9 +1,5 @@
-h1 Here are all the job openings...
-
 .row
   .col-md-8.col-md-offset-2
-
-
     .row
       h2 Create a new job opening
       .panel.panel-default
@@ -23,7 +19,4 @@ h1 Here are all the job openings...
             .panel-body
               p= job.description
             .panel-footer
-              button.btn.btn-success= link_to "Edit"
-              button.btn.btn-warning= link_to "Delete"
-              
-    
+              =link_to "Show", admin_job_opening_path(job), class: "btn btn-warning", data: { disable_with: "Retrieving..." }
