@@ -16,6 +16,10 @@ class Admin::JobOpeningsController < AdminController
     end
   end
 
+  def show
+    @job_opening = JobOpening.find(params[:id])
+  end
+
   private
 
   def job_opening_params
