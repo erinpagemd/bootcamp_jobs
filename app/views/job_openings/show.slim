@@ -1,0 +1,17 @@
+.row
+  .col-md-8.col-md-offset-2
+
+
+    h1= @job_opening.name
+
+    p= @job_opening.description
+
+    =link_to "Index", job_openings_path, class: "btn btn-success", data: { disable_with: "Retrieving..." }
+
+
+    .row
+      =simple_form_for @submission do |f|
+        =f.association :user, as: :hidden, input_html: { value: current_user.id }
+        =f.association :job_opening, as: :hidden, input_html: { value: @job_opening.id }
+        / =f.input :aasm_state, as: :hidden, input_html: { value: 'Applied' }
+        =f.button :submit, data: { disable_with: "Applying..." }

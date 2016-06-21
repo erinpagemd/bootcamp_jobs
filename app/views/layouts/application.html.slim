@@ -14,4 +14,7 @@ html
       p.alert
         = alert
     .container-fluid
+      - if current_user
+        p= link_to "Log Out", destroy_user_session_path, method: :delete
+    .container-fluid
       = yield

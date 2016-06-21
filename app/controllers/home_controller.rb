@@ -6,8 +6,10 @@ class HomeController < ApplicationController
 
   def user_redirect
     return unless current_user
-    if current_user.type == "Admin"
+    if current_user.admin?
       redirect_to admin_job_openings_path
+    else
+      redirect_to job_openings_path
     end
   end
 
