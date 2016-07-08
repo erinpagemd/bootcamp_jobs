@@ -1,13 +1,27 @@
-.row
-  .col-md-8.col-md-offset-2
-    .row
-      h2 Current Job Openings
-      - @job_openings.each do |job|
-        .row
-          .panel.panel-primary
-            .panel-heading
-              h2.panel-title= job.name
-            .panel-body
-              p= job.description
-            .panel-footer
-              =link_to "Show", job_opening_path(job), class: "btn btn-warning", data: { disable_with: "Retrieving..." }
+.col-md-6
+  .row
+    .col-md-8.col-md-offset-2
+      .row
+        h2 My Applications
+        - @submissions.each do |submission|
+          .row
+            .panel.panel-success
+              .panel-heading
+                h2.panel-title= submission.job_name
+              .panel-body
+                p= submission.aasm_state
+                p= submission.applied_date_message
+.col-md-6
+  .row
+    .col-md-8.col-md-offset-2
+      .row
+        h2 Current Job Openings
+        - @job_openings.each do |job|
+          .row
+            .panel.panel-primary
+              .panel-heading
+                h2.panel-title= job.name
+              .panel-body
+                p= job.description
+              .panel-footer
+                =link_to "Show", job_opening_path(job), class: "btn btn-warning", data: { disable_with: "Retrieving..." }
