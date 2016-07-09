@@ -11,16 +11,16 @@
 
     .row
       h2 Current Job Openings
-      - @job_openings.each do |job|
+      - @job_openings.each do |job_opening|
         .row
           .panel.panel-primary
             .panel-heading
-              h2.panel-title= job.name
+              h2.panel-title= job_opening.name
             .panel-body
-              p= job.description
+              p= job_opening.description
             .panel-footer
               .row
                 .col-md-6
-                  =link_to "Show", admin_job_opening_path(job), class: "btn btn-warning", data: { disable_with: "Retrieving..." }
+                  =link_to "Show", admin_job_opening_path(job_opening), class: "btn btn-warning", data: { disable_with: "Retrieving..." }
                 .col-md-6
-                  p= "#{job.submissions.count} applicants"
+                  p= job_opening.applicant_count
