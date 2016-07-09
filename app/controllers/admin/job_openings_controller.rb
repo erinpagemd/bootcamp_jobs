@@ -17,7 +17,7 @@ class Admin::JobOpeningsController < AdminController
   end
 
   def show
-    @submissions = @job_opening.submissions.decorate
+    @submissions = SubmissionDecorator.decorate_collection(@job_opening.submissions.decorate)
   end
 
   private
