@@ -3,6 +3,7 @@ class Admin::JobOpeningsController < AdminController
 
   def index
     @job_opening = JobOpening.new
+    @job_openings = JobOpeningDecorator.decorate_collection(@job_openings)
   end
 
   def create
@@ -16,6 +17,7 @@ class Admin::JobOpeningsController < AdminController
   end
 
   def show
+    @submissions = SubmissionDecorator.decorate_collection(@job_opening.submissions.decorate)
   end
 
   private
