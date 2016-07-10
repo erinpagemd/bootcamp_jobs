@@ -36,10 +36,13 @@ p= @job_opening.description
                     button.btn.btn-warning Reconsider
                 - if submission.may_admin_contacts_candidate?
                   .col-md-2
-                    = button_to "Contacted", [:admin_contact, :admin, submission], method: :put, class: "btn btn-info", data: { disable_with: "Updating..."}
+                    = button_to "Contacted", [:admin_contact, :admin, submission], method: :put, class: "btn btn-info", data: { disable_with: "Updating..." }
                 - if submission.may_admin_interviews_candidate?
                   .col-md-2
-                    button.btn.btn-primary Interview
+                    = button_to "Interviewed", [:admin_interview, :admin, submission], method: :put, class: "btn btn-primary", data: { disable_with: "Updating..." }
                 - if submission.may_admin_hires_candidate?
                   .col-md-2
-                    button.btn.btn-success Hire
+                    = button_to "Hired", [:admin_hired, :admin, submission], method: :put, class: "btn btn-success", data: { disable_with: "Updating..." }
+                - if submission.hired?
+                  .col-md-10
+                    h2= "***HIRED***"

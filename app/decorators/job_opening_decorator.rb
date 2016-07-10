@@ -10,4 +10,9 @@ class JobOpeningDecorator < Draper::Decorator
     return "No applications" unless object.submissions.any?
     "#{object.submissions.try(:count)} applications"
   end
+
+  def hired_applicant
+    return "" unless object.submissions.hired.any?
+    "***HIRED APPLICANT***"
+  end
 end

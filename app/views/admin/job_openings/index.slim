@@ -20,9 +20,11 @@
               p= job_opening.description
             .panel-footer
               .row
-                .col-md-4
+                .col-md-3
                   =link_to "Show", admin_job_opening_path(job_opening), class: "btn btn-warning", data: { disable_with: "Retrieving..." }
-                .col-md-4
+                .col-md-3
                   p= job_opening.application_count
-                .col-md-4
+                .col-md-3
                   p= job_opening.active_applications
+                .col-md-3
+                  p= job_opening.hired_applicant
