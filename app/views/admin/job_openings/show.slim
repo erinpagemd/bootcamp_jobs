@@ -16,3 +16,6 @@ p= @job_opening.description
             .panel-body
               p= submission.aasm_state
               p= submission.applied_date_message
+            .panel-footer
+              - if submission.may_admin_reject?
+                = button_to "Reject", [:admin_reject, :admin, submission], method: :put, class: "btn btn-danger", data: { disable_with: "Rejecting" }
