@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       member do
         put :admin_reject
         put :admin_contact
+        put :admin_interview
+        put :admin_hired
       end
     end
   end
