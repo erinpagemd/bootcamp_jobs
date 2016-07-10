@@ -11,7 +11,11 @@ Rails.application.routes.draw do
 
   resources :job_openings
 
+  resources :phone_numbers
+
   resources :submissions
+
+  resources :users
 
   devise_for :users
   root 'home#index'

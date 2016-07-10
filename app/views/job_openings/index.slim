@@ -1,27 +1,42 @@
-.col-md-6
-  .row
-    .col-md-8.col-md-offset-2
-      .row
-        h2 My Applications
-        - @submissions.each do |submission|
-          .row
-            .panel.panel-success
-              .panel-heading
-                h2.panel-title= submission.job_name
-              .panel-body
-                p= submission.aasm_state
-                p= submission.applied_date_message
-.col-md-6
-  .row
-    .col-md-8.col-md-offset-2
-      .row
-        h2 Current Job Openings
-        - @job_openings.each do |job|
-          .row
-            .panel.panel-primary
-              .panel-heading
-                h2.panel-title= job.name
-              .panel-body
-                p= job.description
-              .panel-footer
-                =link_to "Show", job_opening_path(job), class: "btn btn-warning", data: { disable_with: "Retrieving..." }
+.row
+  .col-md-10.col-md-offset-1
+    .row
+      .col-md-4
+        label My Name
+        h2= @user.name
+      .col-md-8
+        - @user.phone_numbers.each do |number|
+          .col-md-2
+            label= number.location
+            h5= number.number
+    .row
+      = link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-info btn-lg btn-block", data: { disable_with: "Retrieving..." }
+
+.row
+  .col-md-6
+    .row
+      .col-md-8.col-md-offset-2
+        .row
+          h2 My Applications
+          - @submissions.each do |submission|
+            .row
+              .panel.panel-success
+                .panel-heading
+                  h2.panel-title= submission.job_name
+                .panel-body
+                  p= submission.aasm_state
+                  p= submission.applied_date_message
+  .col-md-6
+    .row
+      .col-md-8.col-md-offset-2
+        .row
+          h2 Current Job Openings
+          - @job_openings.each do |job|
+            .row
+              .panel.panel-primary
+                .panel-heading
+                  h2.panel-title= job.name
+                .panel-body
+                  p= job.description
+                .panel-footer
+                  =link_to "View this Job", job_opening_path(job), class: "btn btn-warning", data: { disable_with: "Retrieving..." }
