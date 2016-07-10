@@ -2,6 +2,8 @@ class Submission < ActiveRecord::Base
   belongs_to :user
   belongs_to :job_opening
 
+  scope :active, -> { where(aasm_state: 0) }
+
   include AASM
 
   enum aasm_state: {
