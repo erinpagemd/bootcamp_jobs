@@ -14,8 +14,18 @@ p= @job_opening.description
             .panel-heading
               h2.panel-title= submission.applicant_name
             .panel-body
-              p= submission.aasm_state
-              p= submission.applied_date_message
+              .col-md-6
+                p= submission.aasm_state
+                p= submission.applied_date_message
+              .col-md-6
+                p= submission.applicant_email
+                h6 Phone Numbers
+                p= submission.without_phone_numbers
+                .row
+                  - submission.user.phone_numbers.each do |number|
+                    .col-md-4
+                      label= number.location
+                      p= number.number
             .panel-footer
               - if submission.may_admin_reject?
                 = button_to "Reject", [:admin_reject, :admin, submission], method: :put, class: "btn btn-danger", data: { disable_with: "Rejecting" }

@@ -18,4 +18,8 @@ class SubmissionDecorator < Draper::Decorator
   def job_name
     object.try(:job_opening).try(:name) || "Some Job"
   end
+
+  def without_phone_numbers
+    "Applicant did not enter phone number" if object.user.phone_numbers.empty?
+  end
 end
