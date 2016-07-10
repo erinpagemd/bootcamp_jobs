@@ -9,12 +9,12 @@ class PhoneNumbersController < ApplicationController
 
   def create
     @phone_number.save
-    redirect_to edit_user_path(current_user)
+    redirect_to edit_profile_path(current_user)
   end
 
   def update
     @phone_number.update(phone_number_params)
-    redirect_to edit_user_path(current_user)
+    redirect_to edit_profile_path(current_user)
   end
 
   def phone_number_params
