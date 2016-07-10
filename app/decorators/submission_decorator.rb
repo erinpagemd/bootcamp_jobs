@@ -7,7 +7,7 @@ class SubmissionDecorator < Draper::Decorator
 
   def applicant_name
     return "Some Anonymous Applicant" unless object.user && object.user.first_name || object.user.last_name
-    "#{object.user.first_name} #{object.user.last_name}"
+    "#{object.user.try(:first_name)} #{object.user.try(:last_name)}"
   end
 
   def applied_date_message
