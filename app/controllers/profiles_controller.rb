@@ -1,10 +1,12 @@
-class UsersController < ApplicationController
-  load_and_authorize_resource
+class ProfilesController < ApplicationController
+  authorize_resource class: 'User'
 
   def edit
+    @user = current_user
   end
 
   def update
+    @user = current_user
     @user.update(user_params)
     redirect_to job_openings_path
   end
