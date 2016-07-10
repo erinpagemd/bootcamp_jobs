@@ -18,7 +18,7 @@ class Submission < ActiveRecord::Base
     Submission.aasm_states.each { |k, v| state k.to_sym, inital: v.zero? }
 
     event :admin_reject do
-      transitions :from => :applied, :to => :rejected
+      transitions :from => [:applied, :contacted, :interviewed], :to => :rejected
     end
 
     event :admin_contacts_candidate do
