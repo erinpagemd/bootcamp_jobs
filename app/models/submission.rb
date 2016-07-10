@@ -11,5 +11,9 @@ class Submission < ActiveRecord::Base
 
   aasm column: :aasm_state, enum: true do
     Submission.aasm_states.each { |k, v| state k.to_sym, inital: v.zero? }
+
+    event :admin_reject do
+      transitions :from => :applied, :to => :rejected
+    end
   end
 end
