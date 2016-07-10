@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :submissions do
       member do
         put :admin_reject
+        put :admin_contact
       end
     end
   end

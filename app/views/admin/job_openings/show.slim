@@ -36,7 +36,7 @@ p= @job_opening.description
                     button.btn.btn-warning Reconsider
                 - if submission.may_admin_contacts_candidate?
                   .col-md-2
-                    button.btn.btn-info Contact
+                    = button_to "Contacted", [:admin_contact, :admin, submission], method: :put, class: "btn btn-info", data: { disable_with: "Updating..."}
                 - if submission.may_admin_interviews_candidate?
                   .col-md-2
                     button.btn.btn-primary Interview
