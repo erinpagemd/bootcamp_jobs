@@ -15,8 +15,8 @@ Rails.application.routes.draw do
 
   resources :submissions
 
-  resources :users
+  resource :profile, only: [:edit, :update]
 
-  devise_for :users
+  devise_for :user
   root 'home#index'
 end

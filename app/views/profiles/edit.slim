@@ -5,7 +5,7 @@
         .panel-heading
           h2 Update Profile
         .panel-body
-          =simple_form_for [@user] do |f|
+          =simple_form_for @user, url: profile_path do |f|
             =f.input :first_name
             =f.input :last_name
             =f.button :submit, class: "btn btn-success", data: { disable_with: "Updating..." }
