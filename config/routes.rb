@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   resources :job_openings
 
+  resources :phone_numbers
+
   resources :submissions
 
   resources :users
