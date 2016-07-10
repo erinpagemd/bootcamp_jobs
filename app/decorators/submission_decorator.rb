@@ -1,8 +1,12 @@
 class SubmissionDecorator < Draper::Decorator
   delegate_all
 
+  def applicant_email
+    "#{object.user.email}"
+  end
+
   def applicant_name
-    return "Some Applicant" unless object.user
+    return "Some Anonymous Applicant" unless object.user && object.user.first_name || object.user.last_name
     "#{object.user.first_name} #{object.user.last_name}"
   end
 
