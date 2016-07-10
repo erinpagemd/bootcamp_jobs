@@ -9,5 +9,27 @@
             =f.input :first_name
             =f.input :last_name
             =f.button :submit, class: "btn btn-success", data: { disable_with: "Updating..." }
+            
+          br
+          	
+          .row
+            .col-md-10.col-md-offset-1
+              .panel.panel-default
+                .panel-heading
+                  h4 Phone Numbers
+                .panel-body
+                  - @user.phone_numbers.each do |number|
+                    .col-md-3
+                      .panel.panel-primary
+                        .panel-heading 
+                          h4= number.location
+                        .panel-body
+                          p= number.number
+                          = link_to "Edit", edit_phone_number_path(number)
+                
         .panel-footer
-          = link_to "Cancel", job_openings_path, class: "btn btn-warning", data: { disable_with: "Returning..." }
+          .row
+            .col-md-6
+              = link_to "Add Phone Number", new_phone_number_path, class: "btn btn-primary", data: { disable_with: "Retrieving..."}
+            .col-md-6
+              = link_to "Cancel", job_openings_path, class: "btn btn-warning", data: { disable_with: "Returning..." }
