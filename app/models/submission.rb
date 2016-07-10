@@ -2,7 +2,7 @@ class Submission < ActiveRecord::Base
   belongs_to :user
   belongs_to :job_opening
 
-  scope :active, -> { where(aasm_state: 0) }
+  scope :active, -> { where(aasm_state: [0, 2, 3]) }
 
   include AASM
 
