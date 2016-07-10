@@ -1,6 +1,10 @@
 .row
   .col-md-10.col-md-offset-1
-    = link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-info btn-lg btn-block", data: { disable_with: "Retrieving..." }
+    .row
+      label My Name
+      h2= @user.name
+    .row
+      = link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-info btn-lg btn-block", data: { disable_with: "Retrieving..." }
 
 .row
   .col-md-6
