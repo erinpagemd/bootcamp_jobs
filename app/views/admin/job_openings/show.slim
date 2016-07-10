@@ -30,7 +30,7 @@ p= @job_opening.description
               .row
                 - if submission.may_admin_reject?
                   .col-md-2
-                    = button_to "Reject", [:admin_reject, :admin, submission], method: :put, class: "btn btn-danger", data: { disable_with: "Rejecting" }
+                    = button_to "Reject", [:admin_reject, :admin, submission], method: :put, class: "btn btn-danger", data: { disable_with: "Rejecting..." }
                 - if submission.rejected?
                   .col-md-2
                     button.btn.btn-warning Reconsider
