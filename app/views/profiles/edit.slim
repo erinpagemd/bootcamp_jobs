@@ -11,21 +11,21 @@
             =f.button :submit, class: "btn btn-success", data: { disable_with: "Updating..." }
             
           br
-          	
-          .row
-            .col-md-10.col-md-offset-1
-              .panel.panel-default
-                .panel-heading
-                  h4 Phone Numbers
-                .panel-body
-                  - @user.phone_numbers.each do |number|
-                    .col-md-3
-                      .panel.panel-primary
-                        .panel-heading 
-                          h4= number.location
-                        .panel-body
-                          p= number.number
-                          = link_to "Edit", edit_phone_number_path(number)
+          - if @user.phone_numbers.any? 	
+            .row
+              .col-md-10.col-md-offset-1
+                .panel.panel-default
+                  .panel-heading
+                    h4 Phone Numbers
+                  .panel-body
+                    - @user.phone_numbers.each do |number|
+                      .col-md-3
+                        .panel.panel-primary
+                          .panel-heading 
+                            h4= number.location
+                          .panel-body
+                            p= number.number
+                            = link_to "Edit", edit_phone_number_path(number)
                 
         .panel-footer
           .row
