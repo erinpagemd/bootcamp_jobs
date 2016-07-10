@@ -1,1 +1,13 @@
-h1 You are on the edit page!!
+.row
+  .col-md-8.col-md-offset-2
+    .row
+      .panel.panel-info
+        .panel-heading
+          h2 Update Profile
+        .panel-body
+          =simple_form_for [@user] do |f|
+            =f.input :first_name
+            =f.input :last_name
+            =f.button :submit, class: "btn btn-success", data: { disable_with: "Updating..." }
+        .panel-footer
+          = link_to "Cancel", job_openings_path, class: "btn btn-warning", data: { disable_with: "Returning..." }
