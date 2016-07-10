@@ -5,7 +5,8 @@ class Submission < ActiveRecord::Base
   include AASM
 
   enum aasm_state: {
-    applied: 0
+    applied: 0,
+    rejected: 1
   }
 
   aasm column: :aasm_state, enum: true do
