@@ -17,8 +17,8 @@ p= @job_opening.description
               .col-md-6
                 p= submission.aasm_state
                 p= submission.applied_date_message
-              .col-md-6
                 p= submission.applicant_email
+              .col-md-6
                 h6 Phone Numbers
                 p= submission.without_phone_numbers
                 .row
@@ -27,5 +27,19 @@ p= @job_opening.description
                       label= number.location
                       p= number.number
             .panel-footer
-              - if submission.may_admin_reject?
-                = button_to "Reject", [:admin_reject, :admin, submission], method: :put, class: "btn btn-danger", data: { disable_with: "Rejecting" }
+              .row
+                - if submission.may_admin_reject?
+                  .col-md-2
+                    = button_to "Reject", [:admin_reject, :admin, submission], method: :put, class: "btn btn-danger", data: { disable_with: "Rejecting" }
+                - if submission.rejected?
+                  .col-md-2
+                    button.btn.btn-warning Reconsider
+                - if submission.may_admin_contacts_candidate?
+                  .col-md-2
+                    button.btn.btn-info Contact
+                - if submission.may_admin_interviews_candidate?
+                  .col-md-2
+                    button.btn.btn-primary Interview
+                - if submission.may_admin_hires_candidate?
+                  .col-md-2
+                    button.btn.btn-success Hire
