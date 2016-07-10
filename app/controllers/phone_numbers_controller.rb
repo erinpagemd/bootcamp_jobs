@@ -1,5 +1,5 @@
 class PhoneNumbersController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource through: :current_user
 
   def new
   end
@@ -8,7 +8,6 @@ class PhoneNumbersController < ApplicationController
   end
 
   def create
-    @phone_number.user = current_user
     @phone_number.save
     redirect_to edit_user_path(current_user)
   end
