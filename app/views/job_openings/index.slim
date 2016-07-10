@@ -19,7 +19,10 @@
     .row
       .col-md-8.col-md-offset-2
         .row
-          h2 My Applications
+          -if @submissions.any? 
+            h2 My Applications
+          -else 
+            h3 You have not applied for any jobs yet! Get started.
           - @submissions.each do |submission|
             .row
               .panel.panel-success
